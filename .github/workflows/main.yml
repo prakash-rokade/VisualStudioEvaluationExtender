@@ -19,22 +19,22 @@ jobs:
   build:
     # The type of runner that the job will run on
     runs-on: windows-latest
-    env: 
-      msbuild: "C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Enterprise\\MSBuild\\Current\\Bin"
+    #env: 
+      #msbuild: "C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Enterprise\\MSBuild\\Current\\Bin"
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      - name: Env variables
-        run:
-          echo “::add-path::C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\MSBuild\Current\Bin"
+      #- name: Env variables
+        #run:
+         # echo “::add-path::C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\MSBuild\Current\Bin"
           
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
         name: Checkout code
 
       # Runs a single command using the runners shell
-      - name: Setup MSBuild Path
-        uses: warrenbuckley/Setup-MSBuild@v1
+      - name: Setup MSBuild.exe
+        uses: microsoft/setup-msbuild@v1.0.2
 
       - name: Build and Publish App
         run: msbuild VisualStudioEvalExtender.sln /p:Configuration=Release
