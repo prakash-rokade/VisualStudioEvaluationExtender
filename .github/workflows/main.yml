@@ -41,7 +41,7 @@ jobs:
 
       # Runs a set of commands using the runners shell
       - name: Upload Artifact
-        uses: actions/upload-artifact@v1.0.0
+        uses: actions/upload-artifact@v2
         with:
-          name: published_app
+          name: Released
           path: VisualStudioEvalExtender\bin\Release\
